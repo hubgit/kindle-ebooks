@@ -1,0 +1,52 @@
+body {
+	font-family: sans-serif;
+	background: #eee;
+}
+
+article {
+	display: inline-block;
+	vertical-align: top;
+	position: relative;
+	width: 500px;
+	padding: 20px;
+	border: 1px solid transparent;
+	border-radius: 2px;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+article:hover {
+	background: white;
+	border: 1px solid #ddd;
+}
+
+.image {
+	width: 500px;
+	height: 500px;
+	background-position: center top;
+	border-radius: 1000px;
+}
+
+.meta {
+	font-weight: bold;
+	font-size: 120%;
+	margin: 20px 0;
+	text-align: center;
+}
+
+.reviews {
+	width: 100%;
+	height: 500px;
+	border: none;
+}
+
+[itemprop=name] {
+	margin-bottom: 20px;
+}
+
+[itemprop=author] {
+	color: #777;
+}

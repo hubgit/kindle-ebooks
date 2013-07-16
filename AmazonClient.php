@@ -17,7 +17,7 @@ class AmazonClient {
 
 		$this->curl = curl_init();
 		curl_setopt($this->curl, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($this->curl, CURLOPT_VERBOSE, true);
+		//curl_setopt($this->curl, CURLOPT_VERBOSE, true);
 		curl_setopt($this->curl, CURLOPT_ENCODING, 'gzip,deflate');
 	}
 
@@ -30,7 +30,7 @@ class AmazonClient {
 		$params['Signature'] = $this->sign('GET', $params, $host);
 
 		$url = 'http://' . $host . '/onca/xml?' . http_build_query($params);
-		print "$url\n";
+		//print "$url\n";
 
 		curl_setopt($this->curl, CURLOPT_URL, $url);
 
