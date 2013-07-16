@@ -5,8 +5,10 @@ date_default_timezone_set('UTC');
 // Create keys at https://console.aws.amazon.com/iam/home?#security_credential
 
 class AmazonClient {
-  /** @var cURL */
+	/** @var cURL */
 	public $curl;
+
+	public $version = '2011-08-01';
 
 	private $config = array();
 
@@ -22,8 +24,8 @@ class AmazonClient {
 	public function get($params = array(), $host = 'webservices.amazon.com') {
 		$params['AWSAccessKeyId'] = $this->config['access_key'];
 		$params['AssociateTag'] = $this->config['associate_tag'];
+		$params['Version'] = $this->version;
 		$params['Timestamp'] = date('c');
-		$params['Version'] = '2011-08-01';
 		$params['Service'] = 'AWSECommerceService';
 		$params['Signature'] = $this->sign('GET', $params, $host);
 
@@ -66,7 +68,7 @@ class AmazonClient {
 				//print $dom->saveXML();
 
 				$xpath = new DOMXPath($dom);
-				$xpath->registerNamespace('a', 'http://webservices.amazon.com/AWSECommerceService/2011-08-01');
+				$xpath->registerNamespace('a', 'http://webservices.amazon.com/AWSECommerceService/' . $this->version);
 
 				return $xpath;
 
