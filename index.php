@@ -33,6 +33,8 @@ $client = new AmazonClient($host);
 //$client->debug = true;
 
 // request
+
+// Kindle eBooks browse nodes
 $browseNodes = array(
 	'webservices.amazon.com' => '154606011',
 	'webservices.amazon.co.uk' => '341689031',
@@ -40,7 +42,7 @@ $browseNodes = array(
 
 $params = array(
 	'Operation' => 'ItemSearch',
-	'BrowseNode' => $browseNodes[$host], // Kindle eBooks (341689031 in UK)
+	'BrowseNode' => $browseNodes[$host],
 	'SearchIndex' => 'Books', // or KindleStore
 	'ResponseGroup' => 'ItemAttributes,Images,Reviews',
 	'Sort' => $input['sort'],
