@@ -60,7 +60,7 @@ foreach ($xpath->query('a:Items/a:Item') as $item) {
 	$isbn = $xpath->evaluate('string(a:EISBN)', $itemAttributes);
 
 	$items[] = array(
-		'@context' => 'http://git.macropus.org/amazon-schema/context.json',
+		'@context' => 'http://git.macropus.org/amazon-schema/book.json',
 		'@type' => 'http://schema.org/Book',
 		'@id' => 'http://amazon.com/dp/' . $xpath->evaluate('string(a:ASIN)', $item),
 		'url' => $xpath->evaluate('string(a:DetailPageURL)', $item),
