@@ -6,9 +6,16 @@
 <form>
 	<label>Keywords <input name="keywords" type="search" size="50"></label>
 
+	<label>Country <select name="host">
+		<? foreach ($options['hosts'] as $key => $value): ?>
+			<option value="<?= $key ?>"><?= $value ?></option>
+		<? endforeach; ?>
+	</select></label>
+
 	<label>Sort <select name="sort">
-		<option selected>reviewrank</option>
-		<option>salesrank</option>
+		<? foreach ($options['sorts'] as $key => $value): ?>
+			<option value="<?= $key ?>"><?= $value ?></option>
+		<? endforeach; ?>
 	</select></label>
 
 	<label>Page <input name="page" type="number" min="1" max="10" value="1"></label>

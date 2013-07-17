@@ -6,6 +6,10 @@ define('BASE_URL', $config['base_url']);
 
 // description form
 $options = array(
+	'hosts' => array(
+		'webservices.amazon.com' => 'US',
+		'webservices.amazon.co.uk' => 'UK',
+	),
 	'sorts' => array(
 		'reviewrank' => 'Top Rated',
 		'salesrank' => 'Top Selling',
@@ -20,6 +24,7 @@ if (empty($_GET)) {
 
 // input
 $input = array(
+	'host' => isset($_GET['host']) && ($host = $_GET['host']) && array_key_exists($host, $options['hosts']) ? $host : 'webservices.amazon.com',
 	'sort' => isset($_GET['sort']) && ($sort = $_GET['sort']) && array_key_exists($sort, $options['sorts']) ? $sort : 'reviewrank',
 	'page' => isset($_GET['page']) && ($page = $_GET['page']) ? min(10, max(1, (int) $page)) : 1,
 	'keywords' => isset($_GET['keywords']) && $_GET['keywords'] ? $_GET['keywords'] : null,
@@ -28,8 +33,7 @@ $input = array(
 // client
 require __DIR__ . '/AmazonClient.php';
 
-$host = 'webservices.amazon.com';
-$client = new AmazonClient($host);
+$client = new AmazonClient($input['host']);
 //$client->debug = true;
 
 // request
