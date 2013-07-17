@@ -1,4 +1,4 @@
-JSON-LD feed for Kindle eBooks via Amazon Product Advertising API
+HAL/JSON-LD feed for Kindle eBooks via Amazon Product Advertising API
 
 # JSON-LD
 
