@@ -2,7 +2,7 @@
 
 date_default_timezone_set('UTC');
 
-// Create keys at https://console.aws.amazon.com/iam/home?#security_credential
+// Create keys at https://portal.aws.amazon.com/gp/aws/securityCredentials
 
 class AmazonClient {
 	/** @var cURL */
