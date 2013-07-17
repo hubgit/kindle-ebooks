@@ -1,6 +1,3 @@
-kindle-ebooks
-=============
-
 JSON-LD feed for Kindle eBooks via Amazon Product Advertising API
 
 # JSON-LD
