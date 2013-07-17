@@ -83,6 +83,7 @@ $data = array(
 );
 
 header('Content-Type: application/ld+json;charset=UTF-8');
+header('Access-Control-Allow-Origin: *');
 print json_encode($data, JSON_PRETTY_PRINT);
 
 function build_links($xpath, $input) {
